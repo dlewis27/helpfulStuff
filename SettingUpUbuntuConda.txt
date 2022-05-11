@@ -1,0 +1,38 @@
+Setting up ubuntu subsystem (Simplified from biostarhandbook)
+
+1. In windows search bar type "Turn Windows features on or off"
+2. check "Windows Subsystem for Linux"
+3. Restart computer
+4. Go to microsoft store in start menu and search for Ubuntu. Choose first option and install
+5. Open Ubuntu, make a username and pasword
+---Where am I?---
+6. to go to a familiar place, "cd /mnt/c/Users/"
+---Make an alias to make this easier---
+7. Make sure you are at the root with "cd"
+8. type ls -a to see hidden files, open ".bashrc" with "vi .bashrc"
+9. Hit "i" to start editing, scroll down with arrow keys to find where aliases are listed
+10. add the line alias docs='cd /mnt/c/Users/'\''FirstName LastName'\''/'\''My Documents' with the path corrected for your computer, pay attention to the spaces.
+11. close and open the terminal back up, type "docs" and it should bring you to "My Documents"
+
+Setting up conda
+1. install miniconda (if link doesn't work go find the right one by googling miniconda) run the commands:
+	curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh > miniconda-installer.sh
+	bash miniconda-installer.sh -b
+	miniconda3/condabin/conda init
+2. close and reopen ubuntu, check everything is working by typing "conda"
+3. Add channels with
+	conda config --add channels bioconda
+	conda config --add channels conda-forge
+4. Make a conda enviroment "bioinfo" or whatever you want to call it and add popular software listed by biostars, may need to restart.
+	conda create -y --name bioinfo python=3.6
+5. Activate evironment (may have to open and close terminal again). You will have to run this everytime you open the terminal to active the enviroment
+	conda activate bioinfo
+6. Get list of perscribed biostar tools
+	curl http://data.biostarhandbook.com/install/conda.txt > biostarToolList.txt
+7. Install tools on list from the channels into the environment
+	conda install --file biostarToolList.txt
+8. See if tools work by typing bwa, samtools, ect.
+
+
+
+
